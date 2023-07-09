@@ -14,10 +14,11 @@
 }
 
 body {
-    font-family: StratosSkyeng;
+    font-family: StratosSkyeng, sans-serif;
     font-size: 40px;
     line-height: 48px;
     background-color: #004980;
+    height: 774px;
 }
 
 .center {
@@ -31,4 +32,55 @@ body {
     width: 480px;
     height: 459px;
     margin-top: 158px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.difficult-text {
+    max-width: 208px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    margin-top: 52px;
+    margin-bottom: 48px;
+    color: #004980;
+    text-align: center;
+}
+
+.difficult-checkbox {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 24px;
+}
+
+.difficult-item {
+    width: 98px;
+    height: 98px;
+    border-radius: 12px;
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0080C1;
+    cursor: pointer;
+}
+
+.startGame-button {
+    width: 246px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    background-color: #7AC100;
+    margin-top: 67px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #fff;
+    cursor: pointer;
 }
