@@ -1,0 +1,34 @@
+@font-face {
+    font-family: "StratosSkyeng";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff2") format("woff2"),
+        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff') format("woff");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: StratosSkyeng;
+    font-size: 40px;
+    line-height: 48px;
+    background-color: #004980;
+}
+
+.center {
+    padding-left: calc(50% - 240px);
+    padding-right: calc(50% - 240px);
+}
+
+
+.start-select-box {
+    background-color: #C2F5FF;
+    width: 480px;
+    height: 459px;
+    margin-top: 158px;
+}
