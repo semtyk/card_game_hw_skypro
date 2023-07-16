@@ -1,6 +1,6 @@
 import { renderGamePage } from "./components/game-page-component.js";
 
-let globalState = {
+window.globalState = {
     diffLevel: '',
 }
 
