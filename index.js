@@ -26,8 +26,8 @@ export const renderMainPage = () => {
                 levelSelectEl.classList.remove('difficult-item__select');
             }
             levelSelectEl.classList.add('difficult-item__select');
-            globalState.diffLevel = levelSelectEl.dataset.index;
-            console.log(globalState.diffLevel);
+            window.globalState.diffLevel = levelSelectEl.dataset.index;
+            console.log(window.globalState.diffLevel);
         });
     }
 
