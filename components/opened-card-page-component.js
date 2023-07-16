@@ -1,23 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+import { renderMainPage } from "../index.js";
+import { renderGamePage } from "./game-page-component.js";
+// export function renderGamePage(level) {
+//     const appEl = document.getElementById('app');
+//     let difficultMessage;
+//     switch (level) {
+//         case '1':
+//             difficultMessage = 'легкий'
+//             break;
+//         case '2':
+//             difficultMessage = 'средний'
+//             break;
+//         case '3':
+//             difficultMessage = 'тяжелый'
+//             break;
+//         default:
+//             break;
+//     }
+//     const appHtml = `
+//     <div class="start-select-box">
+//                 <h1 class="difficult-text">Вы выбрали ${difficultMessage} уровень сложности</h1>
+//             </div>
+//     `
+//     appEl.innerHTML = appHtml;
+// }
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" name="viewport">
-    <link rel="stylesheet" href="styles.css">
-    <title>Игра "Угадай карты"</title>
-</head>
+export function renderOpenedCardPage() {
+    const appEl = document.getElementById('app');
 
-
-<body>
-        <div id="app" class="center">
-
-        </div>
-        <!-- <header class="main-center header">
+    const openedCardHtml = `
+    <header class="main-center header">
             <div class="timer"></div>
-            <button class="reset-game-button">Показать карты</button>
-            <button class="reset-game-button">Начать заново</button>
+            <button class="reset-game-button" id="showCardButton">Скрыть карты</button>
+            <button class="reset-game-button" id="startNewGameButton">Начать заново</button>
         </header>
         <section class="game-field main-center">
             <div class="card-item card-item1"></div>
@@ -56,10 +70,17 @@
             <div class="card-item card-item34"></div>
             <div class="card-item card-item35"></div>
             <div class="card-item card-item36"></div>
-        </section> -->
-        
-</body>
-<script type="module" src="./index.js"></script>
+        </section>
+    `
 
+    appEl.innerHTML = openedCardHtml;
 
-</html>
+    document.getElementById('startNewGameButton').addEventListener('click', () => {
+        renderMainPage();
+    })
+
+    document.getElementById('showCardButton').addEventListener('click', () => {
+        renderGamePage();
+    })
+
+}
