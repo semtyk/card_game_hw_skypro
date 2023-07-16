@@ -1,5 +1,5 @@
-import { renderMainPage } from "../index.js";
-import { renderGamePage } from "./game-page-component.js";
+import { renderMainPage } from '../index.js';
+import { renderGamePage } from './game-page-component.js';
 // export function renderGamePage(level) {
 //     const appEl = document.getElementById('app');
 //     let difficultMessage;
@@ -71,16 +71,17 @@ export function renderOpenedCardPage() {
             <div class="card-item card-item35"></div>
             <div class="card-item card-item36"></div>
         </section>
-    `
+    `;
 
     appEl.innerHTML = openedCardHtml;
 
-    document.getElementById('startNewGameButton').addEventListener('click', () => {
-        renderMainPage();
-    })
+    document
+        .getElementById('startNewGameButton')
+        .addEventListener('click', () => {
+            renderMainPage();
+        });
 
     document.getElementById('showCardButton').addEventListener('click', () => {
         renderGamePage();
-    })
-
+    });
 }

@@ -1,5 +1,5 @@
-import { renderMainPage } from "../index.js";
-import { renderOpenedCardPage } from "./opened-card-page-component.js";
+import { renderMainPage } from '../index.js';
+import { renderOpenedCardPage } from './opened-card-page-component.js';
 // export function renderGamePage(level) {
 //     const appEl = document.getElementById('app');
 //     let difficultMessage;
@@ -26,7 +26,7 @@ import { renderOpenedCardPage } from "./opened-card-page-component.js";
 
 export function renderGamePage() {
     const appEl = document.getElementById('app');
-    
+
     const closedCardHtml = `
     <header class="header">
             <div class="timer"></div>
@@ -71,15 +71,17 @@ export function renderGamePage() {
             <div class="card-item"></div>
             <div class="card-item"></div>
         </section>
-    `
+    `;
 
     appEl.innerHTML = closedCardHtml;
 
-    document.getElementById('startNewGameButton').addEventListener('click', ()=> {
-        renderMainPage();
-    })
+    document
+        .getElementById('startNewGameButton')
+        .addEventListener('click', () => {
+            renderMainPage();
+        });
 
-    document.getElementById('showCardButton').addEventListener('click', ()=> {
+    document.getElementById('showCardButton').addEventListener('click', () => {
         renderOpenedCardPage();
-    })
+    });
 }

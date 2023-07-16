@@ -1,9 +1,8 @@
-import { renderGamePage } from "./components/game-page-component.js";
+import { renderGamePage } from './components/game-page-component.js';
 
 window.globalState = {
     diffLevel: '',
-}
-
+};
 
 export const renderMainPage = () => {
     const appEl = document.getElementById('app');
@@ -17,7 +16,7 @@ export const renderMainPage = () => {
                 </section>
                 <button class="startGame-button">Старт</button>
             </div>
-    `
+    `;
     appEl.innerHTML = appHtml;
 
     const levelSelectEls = document.querySelectorAll('.difficult-item');
@@ -29,13 +28,13 @@ export const renderMainPage = () => {
             levelSelectEl.classList.add('difficult-item__select');
             globalState.diffLevel = levelSelectEl.dataset.index;
             console.log(globalState.diffLevel);
-        })
+        });
     }
 
     const buttonStartGame = document.querySelector('.startGame-button');
     buttonStartGame.addEventListener('click', () => {
         renderGamePage();
-    })
-}
+    });
+};
 
 renderMainPage();

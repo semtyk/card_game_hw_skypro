@@ -1,10 +1,13 @@
 @font-face {
-    font-family: "StratosSkyeng";
+    font-family: 'StratosSkyeng';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url("./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff2") format("woff2"),
-        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff') format("woff");
+    src:
+        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff2')
+            format('woff2'),
+        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff')
+            format('woff');
 }
 
 * {
@@ -35,8 +38,6 @@ body {
     padding-left: calc(50% - 488px);
     padding-right: calc(50% - 488px);
 }
-
-
 
 .header {
     display: flex;
@@ -72,7 +73,7 @@ body {
     height: 50px;
     border-radius: 12px;
     border: none;
-    background-color: #7AC100;
+    background-color: #7ac100;
     font-weight: 400;
     font-size: 24px;
     line-height: 32px;
@@ -83,7 +84,7 @@ body {
 .start-select-box {
     margin-left: calc(50% - 240px);
     margin-right: calc(50% - 240px);
-    background-color: #C2F5FF;
+    background-color: #c2f5ff;
     width: 480px;
     height: 459px;
     margin-top: 158px;
@@ -122,7 +123,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #0080C1;
+    color: #0080c1;
     cursor: pointer;
 }
 
@@ -135,7 +136,7 @@ body {
     height: 50px;
     border-radius: 12px;
     border: none;
-    background-color: #7AC100;
+    background-color: #7ac100;
     margin-top: 67px;
     font-weight: 400;
     font-size: 24px;
