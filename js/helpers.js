@@ -17,7 +17,7 @@ export const createCardArray = (difficult) => {
 
     /*Создали массив из карт всей колоды */
     let arrOfCards = [];
-    for (let index = 0; index < 36; index++) {
+    for (let index = 1; index < 37; index++) {
         arrOfCards.push(`card-item${index}`);
     }
 

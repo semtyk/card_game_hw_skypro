@@ -4,10 +4,8 @@
     font-weight: 400;
     font-display: swap;
     src:
-        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff2')
-            format('woff2'),
-        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff')
-            format('woff');
+        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff2') format('woff2'),
+        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff') format('woff');
 }
 
 * {
@@ -55,9 +53,14 @@ body {
 }
 
 .game-field {
+    margin-left: calc(50% - 400px);
+    margin-right: calc(50% - 400px);
+    max-width: 800px;
     margin-top: 46px;
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 15px;
 }
 
@@ -65,6 +68,7 @@ body {
     background-image: url('./img/рубашка.jpg');
     background-size: cover;
     background-position: center;
+    width: 95px;
     height: 133px;
 }
 

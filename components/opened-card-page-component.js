@@ -1,28 +1,6 @@
 import { renderMainPage } from '../index.js';
 import { renderGamePage } from './game-page-component.js';
-// export function renderGamePage(level) {
-//     const appEl = document.getElementById('app');
-//     let difficultMessage;
-//     switch (level) {
-//         case '1':
-//             difficultMessage = 'легкий'
-//             break;
-//         case '2':
-//             difficultMessage = 'средний'
-//             break;
-//         case '3':
-//             difficultMessage = 'тяжелый'
-//             break;
-//         default:
-//             break;
-//     }
-//     const appHtml = `
-//     <div class="start-select-box">
-//                 <h1 class="difficult-text">Вы выбрали ${difficultMessage} уровень сложности</h1>
-//             </div>
-//     `
-//     appEl.innerHTML = appHtml;
-// }
+
 
 export function renderOpenedCardPage() {
     const appEl = document.getElementById('app');
