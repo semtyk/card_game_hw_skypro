@@ -1,5 +1,6 @@
 import { renderMainPage } from '../index.js';
 import { renderOpenedCardPage } from './opened-card-page-component.js';
+import { createCardArray } from '../js/helpers.js';
 // export function renderGamePage(level) {
 //     const appEl = document.getElementById('app');
 //     let difficultMessage;
@@ -24,9 +25,13 @@ import { renderOpenedCardPage } from './opened-card-page-component.js';
 //     appEl.innerHTML = appHtml;
 // }
 
-export function renderGamePage() {
+export function renderGamePage(difficult) {
     const appEl = document.getElementById('app');
-
+    // let firstCard = null;
+    // let secondCard = null;
+    // let cardIsClicked = true;
+    let cardArray = createCardArray(difficult);  //создаем массив из случайных пермешанных пар карт
+    console.log(cardArray); //ТЕСТ
     const closedCardHtml = `
     <header class="header">
             <div class="timer"></div>

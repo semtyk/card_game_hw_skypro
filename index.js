@@ -34,9 +34,12 @@ export const renderMainPage = () => {
     }
 
     /* Добавляем обработчик события на кнопку начала игры */
-    const buttonStartGame = document.querySelector('.startGame-button');
+    const buttonStartGame = document.querySelector('.start-game-button');
     buttonStartGame.addEventListener('click', () => {
-        renderGamePage();
+        if (window.globalState.diffLevel) {
+            renderGamePage(window.globalState.diffLevel);
+        }
+        
     });
 };
 
