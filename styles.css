@@ -70,7 +70,9 @@ body {
     background-position: center;
     width: 95px;
     height: 133px;
+    cursor: pointer;
 }
+
 
 .reset-game-button {
     width: 246px;
@@ -291,4 +293,13 @@ body {
 
 .card-item36 {
     background-image: url('./img/6\ крести.jpg');
+}
+
+.checkedCard {
+    border: 3px solid green;
+    cursor: default;
+}
+
+.flip {
+    transform: perspective(100px) rotateY(180deg);
 }
