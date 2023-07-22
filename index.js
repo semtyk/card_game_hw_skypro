@@ -39,7 +39,6 @@ export const renderMainPage = () => {
         if (window.globalState.diffLevel) {
             renderGamePage(window.globalState.diffLevel);
         }
-        
     });
 };
 
