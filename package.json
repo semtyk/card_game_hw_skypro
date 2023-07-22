@@ -8,18 +8,20 @@
         "format": "prettier --write .",
         "lint:js": "eslint ./**/*.js",
         "lint:css": "stylelint ./**/*.css",
-        "build": "webpack",
-        "start": "webpack-dev-server --open"
+        "build": "webpack --mode production",
+        "start": "webpack-dev-server --open --mode development"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "css-loader": "^6.8.1",
+        "css-minimizer-webpack-plugin": "^5.0.1",
         "eslint": "^8.45.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^5.0.0",
         "html-webpack-plugin": "^5.5.3",
+        "mini-css-extract-plugin": "^2.7.6",
         "prettier": "^3.0.0",
         "style-loader": "^3.3.3",
         "stylelint": "^15.10.1",
