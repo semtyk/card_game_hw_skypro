@@ -1,0 +1,305 @@
+@font-face {
+    font-family: StratosSkyeng;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src:
+        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff2') format('woff2'),
+        url('./fonts/statosskyeng-v1.001/Web_fonts/stratosskyengweb-regular.woff') format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: StratosSkyeng, sans-serif;
+    font-size: 40px;
+    line-height: 48px;
+    background-color: #004980;
+    height: 774px;
+}
+
+/* .center {
+    padding-left: calc(50% - 240px);
+    padding-right: calc(50% - 240px);
+} */
+
+/* .center {
+    padding-left: calc(50% - 240px);
+    padding-right: calc(50% - 240px);
+} */
+
+.center {
+    padding-left: calc(50% - 488px);
+    padding-right: calc(50% - 488px);
+}
+
+.header {
+    display: flex;
+    margin-top: 22px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.timer {
+    background-image: url('./img/timer.png');
+    background-size: cover;
+    background-position: center;
+    width: 155px;
+    height: 91px;
+}
+
+.game-field {
+    margin-left: calc(50% - 400px);
+    margin-right: calc(50% - 400px);
+    max-width: 800px;
+    margin-top: 46px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.card-item {
+    background-image: url('./img/рубашка.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 95px;
+    height: 133px;
+    cursor: pointer;
+}
+
+
+.reset-game-button {
+    width: 246px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    background-color: #7ac100;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.start-select-box {
+    margin-left: calc(50% - 240px);
+    margin-right: calc(50% - 240px);
+    background-color: #c2f5ff;
+    width: 480px;
+    height: 459px;
+    margin-top: 158px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.difficult-text {
+    max-width: 208px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    margin-top: 52px;
+    margin-bottom: 48px;
+    color: #004980;
+    text-align: center;
+}
+
+.difficult-checkbox {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 24px;
+}
+
+.difficult-item {
+    width: 98px;
+    height: 98px;
+    border-radius: 12px;
+    background-color: #fff;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #0080c1;
+    cursor: pointer;
+}
+
+.difficult-item-select {
+    background-color: #8dd4f8;
+}
+
+.start-game-button {
+    width: 246px;
+    height: 50px;
+    border-radius: 12px;
+    border: none;
+    background-color: #7ac100;
+    margin-top: 67px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.card-item1 {
+    background-image: url('./img/туз\ пики.jpg');
+}
+
+.card-item2 {
+    background-image: url('./img/король\ пики.jpg');
+}
+
+.card-item3 {
+    background-image: url('./img/дама\ пики.jpg');
+}
+
+.card-item4 {
+    background-image: url('./img/валет\ пики.jpg');
+}
+
+.card-item5 {
+    background-image: url('./img/10\ пики.jpg');
+}
+
+.card-item6 {
+    background-image: url('./img/9\ пики.jpg');
+}
+
+.card-item7 {
+    background-image: url('./img/8\ пики.jpg');
+}
+
+.card-item8 {
+    background-image: url('./img/7\ пики.jpg');
+}
+
+.card-item9 {
+    background-image: url('./img/6\ пики.jpg');
+}
+
+.card-item10 {
+    background-image: url('./img/туз\ черви.jpg');
+}
+
+.card-item11 {
+    background-image: url('./img/король\ черви.jpg');
+}
+
+.card-item12 {
+    background-image: url('./img/дама\ черви.jpg');
+}
+
+.card-item13 {
+    background-image: url('./img/валет\ черви.jpg');
+}
+
+.card-item14 {
+    background-image: url('./img/10\ черви.jpg');
+}
+
+.card-item15 {
+    background-image: url('./img/9\ черви.jpg');
+}
+
+.card-item16 {
+    background-image: url('./img/8\ черви.jpg');
+}
+
+.card-item17 {
+    background-image: url('./img/7\ черви.jpg');
+}
+
+.card-item18 {
+    background-image: url('./img/6\ черви.jpg');
+}
+
+.card-item19 {
+    background-image: url('./img/туз\ бубны.jpg');
+}
+
+.card-item20 {
+    background-image: url('./img/король\ бубны.jpg');
+}
+
+.card-item21 {
+    background-image: url('./img/дама\ бубны.jpg');
+}
+
+.card-item22 {
+    background-image: url('./img/валет\ бубны.jpg');
+}
+
+.card-item23 {
+    background-image: url('./img/10\ бубны.jpg');
+}
+
+.card-item24 {
+    background-image: url('./img/9\ бубны.jpg');
+}
+
+.card-item25 {
+    background-image: url('./img/8\ бубны.jpg');
+}
+
+.card-item26 {
+    background-image: url('./img/7\ бубны.jpg');
+}
+
+.card-item27 {
+    background-image: url('./img/6\ бубны.jpg');
+}
+
+.card-item28 {
+    background-image: url('./img/туз\ крести.jpg');
+}
+
+.card-item29 {
+    background-image: url('./img/король\ крести.jpg');
+}
+
+.card-item30 {
+    background-image: url('./img/дама\ крести.jpg');
+}
+
+.card-item31 {
+    background-image: url('./img/валет\ крести.jpg');
+}
+
+.card-item32 {
+    background-image: url('./img/10\ крести.jpg');
+}
+
+.card-item33 {
+    background-image: url('./img/9\ крести.jpg');
+}
+
+.card-item34 {
+    background-image: url('./img/8\ крести.jpg');
+}
+
+.card-item35 {
+    background-image: url('./img/7\ крести.jpg');
+}
+
+.card-item36 {
+    background-image: url('./img/6\ крести.jpg');
+}
+
+.checkedCard {
+    border: 3px solid green;
+    cursor: default;
+}
+
+.flip {
+    transform: perspective(100px) rotateY(180deg);
+}
