@@ -61,7 +61,6 @@ body {
     gap: 15px;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
 }
 
 .card-item {
@@ -72,6 +71,7 @@ body {
     height: 133px;
     cursor: pointer;
 }
+
 
 
 .reset-game-button {
@@ -296,10 +296,17 @@ body {
 }
 
 .checkedCard {
-    border: 3px solid green;
-    cursor: default;
+    /* cursor: default; */
+    pointer-events: none;
+    opacity: 0.8;
 }
 
 .flip {
-    transform: perspective(100px) rotateY(180deg);
+    transform: perspective(100px) rotateY(180deg) !important;
+    transition: transform 200ms linear;
+}
+
+.card-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0px 30px rgb(65, 65, 65);
 }

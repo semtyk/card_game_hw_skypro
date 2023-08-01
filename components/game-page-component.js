@@ -24,7 +24,7 @@ export function renderGamePage(difficult) {
             ${openedCardHtml}
         </section>
     `;
-    
+
     appEl.innerHTML = tabledCardHtml; //Рисуем их в разметку
 
     const closedCardHtml = cardArray
@@ -46,17 +46,21 @@ export function renderGamePage(difficult) {
                     !cardElement.classList.contains('checkedCard')
                 ) {
                     const index = cardElement.dataset.index;
-                    cardElement.classList.add(`${cardArray[index]}`); //открываем карту
-                    if (firstCard == null) {
+                    cardElement.classList.add(`flip`);
+                    setTimeout(() => {
+                        cardElement.classList.add(`${cardArray[index]}`); //открываем карту
+                        cardElement.classList.remove(`flip`);
+                    }, 200);           
+                    if (firstCard === null) {
                         firstCard = index;
                     } else {
-                        if (index != firstCard) {
+                        if (index !== firstCard) {
                             secondCard = index;
                             clickable = false;
                         }
                     } //запоминаем индексы открытых карт
                     /*Когда обе карты открыты, сверяем их: */
-                    if (firstCard != null && secondCard != null) {
+                    if (firstCard !== null && secondCard !== null) {
                         if (cardArray[firstCard] === cardArray[secondCard]) {
                             //если карты равны то обнуляем переменные для новой итерации, а также стилизуем их как сыгранные
                             setTimeout(() => {
@@ -92,10 +96,7 @@ export function renderGamePage(difficult) {
                 }
             });
         }
-
     }, 5000);
-
-    
 
     document
         .getElementById('startNewGameButton')

@@ -10,11 +10,9 @@ function shuffle(array) {
     }
 }
 
-
 /*Создаем массив из карт, количеством элементов в зависимости от сложности */
 
 export const createCardArray = (difficult) => {
-
     /*Создали массив из карт всей колоды */
     let arrOfCards = [];
     for (let index = 1; index < 37; index++) {
@@ -44,6 +42,6 @@ export const createCardArray = (difficult) => {
 
     /*И снова перемешиваем */
     shuffle(arrOfCards);
-    
+
     return arrOfCards;
 };
