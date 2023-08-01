@@ -5,6 +5,7 @@ window.globalState = {
 };
 
 export const renderMainPage = () => {
+    /*Рендерим стартовую страницу с выбором сложности */
     const appEl = document.getElementById('app');
     const appHtml = `
     <div class="start-select-box">
@@ -19,6 +20,7 @@ export const renderMainPage = () => {
     `;
     appEl.innerHTML = appHtml;
 
+    /* Добавляем интерактивности выбору сложности. При нажатии на кнопку сложности, она сохраняется в переменную */
     const levelSelectEls = document.querySelectorAll('.difficult-item');
     for (const levelSelectEl of levelSelectEls) {
         levelSelectEl.addEventListener('click', () => {
@@ -31,9 +33,12 @@ export const renderMainPage = () => {
         });
     }
 
-    const buttonStartGame = document.querySelector('.startGame-button');
+    /* Добавляем обработчик события на кнопку начала игры */
+    const buttonStartGame = document.querySelector('.start-game-button');
     buttonStartGame.addEventListener('click', () => {
-        renderGamePage();
+        if (window.globalState.diffLevel) {
+            renderGamePage(window.globalState.diffLevel);
+        }
     });
 };
 
