@@ -1,5 +1,6 @@
 import { renderMainPage } from '../index.js';
 import { createCardArray } from '../js/helpers.js';
+import { renderEndGameMessage } from './end-game-message-component.js';
 
 export function renderGamePage(difficult) {
     const appEl = document.getElementById('app');
@@ -16,6 +17,7 @@ export function renderGamePage(difficult) {
         .join(''); //Создаем количество открытых карт, соответственно количеству сгенерированных карт
 
     const tabledCardHtml = `
+    <div id='game'>
     <header class="header">
             <div class="timer"></div>
             <button class="reset-game-button" id="startNewGameButton">Начать заново</button>
@@ -23,6 +25,7 @@ export function renderGamePage(difficult) {
         <section class="game-field">
             ${openedCardHtml}
         </section>
+        </div>
     `;
 
     appEl.innerHTML = tabledCardHtml; //Рисуем их в разметку
@@ -50,7 +53,7 @@ export function renderGamePage(difficult) {
                     setTimeout(() => {
                         cardElement.classList.add(`${cardArray[index]}`); //открываем карту
                         cardElement.classList.remove(`flip`);
-                    }, 200);           
+                    }, 200);
                     if (firstCard === null) {
                         firstCard = index;
                     } else {
@@ -64,7 +67,6 @@ export function renderGamePage(difficult) {
                         if (cardArray[firstCard] === cardArray[secondCard]) {
                             //если карты равны то обнуляем переменные для новой итерации, а также стилизуем их как сыгранные
                             setTimeout(() => {
-                                alert('Вы выиграли');
                                 for (const playedCards of document.querySelectorAll(
                                     `.${cardArray[firstCard]}`,
                                 )) {
@@ -73,23 +75,39 @@ export function renderGamePage(difficult) {
                                 firstCard = null;
                                 secondCard = null;
                                 clickable = true;
+
+                                //Если на все карты навесили класс что они чекнуты, то значит игра завершена успешна
+                                if (
+                                    Array.from(cardElements).every((card) =>
+                                        card.className.includes('checkedCard'),
+                                    )
+                                ) {
+                                    renderEndGameMessage(true, appEl);
+                                }
                             }, 500);
                         } else {
                             setTimeout(() => {
-                                alert('Вы проиграли'); //если карты не равны, то закрываем их
-                                document
-                                    .querySelector(`.${cardArray[firstCard]}`)
-                                    .classList.remove(
-                                        `${cardArray[firstCard]}`,
-                                    );
-                                document
-                                    .querySelector(`.${cardArray[secondCard]}`)
-                                    .classList.remove(
-                                        `${cardArray[secondCard]}`,
-                                    );
-                                firstCard = null;
-                                secondCard = null;
-                                clickable = true;
+                                //если карты не равны, то выводим экран с проигрышем
+                                renderEndGameMessage(false, appEl);
+                //                 const endGameBoxHtml = `
+                //                     <div class="end-game-box">
+                // <div class="loose-smille-img"></div>
+                // <h1 class="end-game-text">Вы проиграли!</h1>
+                // <h2 class="end-time-text">Затраченное время:</h2>
+                // <div class="game-time">14.88</div>
+                // <button class="reset-game-button reset-game-button__bottom">Играть снова</button>
+                //                     </div>
+                //                 `;
+                //                 appEl.innerHTML =
+                //                     appEl.innerHTML + endGameBoxHtml;
+                //                 document
+                //                     .getElementById('game')
+                //                     .classList.add('game-field__transparent');
+                //                 document
+                //                     .querySelector('.reset-game-button__bottom')
+                //                     .addEventListener('click', () => {
+                //                         renderMainPage();
+                //                     });
                             }, 500);
                         }
                     }
