@@ -33,6 +33,7 @@
         "webpack-dev-server": "^4.15.1"
     },
     "dependencies": {
-        "copy-webpack-plugin": "^11.0.0"
+        "copy-webpack-plugin": "^11.0.0",
+        "timer-node": "^5.0.7"
     }
 }

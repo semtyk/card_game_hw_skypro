@@ -22,12 +22,10 @@ body {
     height: 774px;
 }
 
-
 .center {
     padding-left: calc(50% - 488px);
     padding-right: calc(50% - 488px);
 }
-
 
 .header {
     display: flex;
@@ -38,11 +36,29 @@ body {
 }
 
 .timer {
-    background-image: url('./img/timer.png');
-    background-size: cover;
-    background-position: center;
     width: 155px;
     height: 91px;
+    display: flex;
+}
+
+.timer-prm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.timer-prm-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 32px;
+    color: #fff;
+}
+
+.current-time {
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 72px;
+    color: #fff;
 }
 
 .game-field {
@@ -301,7 +317,7 @@ body {
     background-image: url('./img/6_крести.jpg');
 }
 
-.checkedCard {
+.checked-card {
     /* cursor: default; */
     pointer-events: none;
     opacity: 0.8;
@@ -314,12 +330,11 @@ body {
 
 .card-item:hover {
     transform: scale(1.05);
-    box-shadow: 0 0px 30px rgb(65, 65, 65);
+    box-shadow: 0 0 30px rgb(65, 65, 65);
 }
 
 .end-game-box {
     left: calc(50% - 240px);
-    /* margin-right: calc(50% - 240px); */
     background-color: #c2f5ff;
     width: 480px;
     height: 459px;
@@ -368,7 +383,7 @@ body {
     font-size: 24px;
     line-height: 32px;
     margin-top: 10px;
-    color: #000000;
+    color: #000;
     text-align: center;
 }
 
@@ -379,7 +394,7 @@ body {
     font-size: 64px;
     line-height: 72px;
     margin-top: 10px;
-    color: #000000;
+    color: #000;
     text-align: center;
 }
 

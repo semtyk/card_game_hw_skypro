@@ -1,6 +1,7 @@
 import { renderMainPage } from '../index.js';
 import { createCardArray } from '../js/helpers.js';
 import { renderEndGameMessage } from './end-game-message-component.js';
+import { Timer } from 'timer-node';
 
 export function renderGamePage(difficult) {
     const appEl = document.getElementById('app');
@@ -9,6 +10,7 @@ export function renderGamePage(difficult) {
     let clickable = true;
     let cardArray = createCardArray(difficult); //создаем массив из случайных пермешанных пар карт
     //console.log(cardArray); //ТЕСТ
+    const timer = new Timer();
 
     const openedCardHtml = cardArray
         .map((item, index) => {
@@ -19,7 +21,16 @@ export function renderGamePage(difficult) {
     const tabledCardHtml = `
     <div id='game'>
     <header class="header">
-            <div class="timer"></div>
+            <div class="timer">
+                <div class='timer-prm'>
+                    <p class='timer-prm-text'>min</p>
+                    <h2 class='current-time current-time-minute'>00</h2>
+                </div>
+                <div class='timer-prm'>
+                    <p class='timer-prm-text'>sek</p>
+                    <h2 class='current-time current-time-sec'>.00</h2>
+                </div>
+            </div>
             <button class="reset-game-button" id="startNewGameButton">Начать заново</button>
         </header>
         <section class="game-field">
@@ -29,6 +40,20 @@ export function renderGamePage(difficult) {
     `;
 
     appEl.innerHTML = tabledCardHtml; //Рисуем их в разметку
+
+    let minutesHtml = document.querySelector('.current-time-minute');
+    let secondsHtml = document.querySelector('.current-time-sec');
+
+    timer.start(); //запускаем таймер
+
+    let intervalId = setInterval(() => {
+        minutesHtml.innerHTML = timer.format(
+            `${timer.format('%m') < 10 ? '0%m' : '%m'}`,
+        );
+        secondsHtml.innerHTML = timer.format(
+            `${timer.format('%s') < 10 ? '.0%s' : '.%s'}`,
+        );
+    }, 1000); //значения таймера будем выводить каждую секунду
 
     const closedCardHtml = cardArray
         .map((item, index) => {
@@ -46,7 +71,7 @@ export function renderGamePage(difficult) {
                 //При клике на карту проверяем, что клики разрешены а также что эта карта не из пары угаданных
                 if (
                     clickable &&
-                    !cardElement.classList.contains('checkedCard')
+                    !cardElement.classList.contains('checked-card')
                 ) {
                     const index = cardElement.dataset.index;
                     cardElement.classList.add(`flip`);
@@ -70,7 +95,7 @@ export function renderGamePage(difficult) {
                                 for (const playedCards of document.querySelectorAll(
                                     `.${cardArray[firstCard]}`,
                                 )) {
-                                    playedCards.classList.add('checkedCard');
+                                    playedCards.classList.add('checked-card');
                                 }
                                 firstCard = null;
                                 secondCard = null;
@@ -79,35 +104,21 @@ export function renderGamePage(difficult) {
                                 //Если на все карты навесили класс что они чекнуты, то значит игра завершена успешна
                                 if (
                                     Array.from(cardElements).every((card) =>
-                                        card.className.includes('checkedCard'),
+                                        card.className.includes('checked-card'),
                                     )
                                 ) {
-                                    renderEndGameMessage(true, appEl);
+                                    //останавливаем таймер и выводим экран с выигрышем
+                                    clearInterval(intervalId);
+                                    timer.stop();
+                                    renderEndGameMessage(true, appEl, timer);
                                 }
                             }, 500);
                         } else {
                             setTimeout(() => {
-                                //если карты не равны, то выводим экран с проигрышем
-                                renderEndGameMessage(false, appEl);
-                //                 const endGameBoxHtml = `
-                //                     <div class="end-game-box">
-                // <div class="loose-smille-img"></div>
-                // <h1 class="end-game-text">Вы проиграли!</h1>
-                // <h2 class="end-time-text">Затраченное время:</h2>
-                // <div class="game-time">14.88</div>
-                // <button class="reset-game-button reset-game-button__bottom">Играть снова</button>
-                //                     </div>
-                //                 `;
-                //                 appEl.innerHTML =
-                //                     appEl.innerHTML + endGameBoxHtml;
-                //                 document
-                //                     .getElementById('game')
-                //                     .classList.add('game-field__transparent');
-                //                 document
-                //                     .querySelector('.reset-game-button__bottom')
-                //                     .addEventListener('click', () => {
-                //                         renderMainPage();
-                //                     });
+                                //если карты не равны, останавливаем таймер и выводим экран с проигрышем
+                                clearInterval(intervalId);
+                                timer.stop();
+                                renderEndGameMessage(false, appEl, timer);
                             }, 500);
                         }
                     }
