@@ -1,6 +1,6 @@
-import { renderMainPage } from '../index.js';
+import { renderMainPage } from '../index';
 
-export const renderEndGameMessage = (status, appEl, timer) => {
+export const renderEndGameMessage = (status: boolean, appEl: HTMLElement, timer: any) => {
     const endGameBoxHtml = `
                                     <div class="end-game-box">
                 <div class=${

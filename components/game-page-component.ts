@@ -1,17 +1,17 @@
-import { renderMainPage } from '../index.js';
-import { createCardArray } from '../js/helpers.js';
-import { renderEndGameMessage } from './end-game-message-component.js';
+import { renderMainPage } from '../index';
+import { createCardArray } from '../js/helpers';
+import { renderEndGameMessage } from './end-game-message-component';
 import { Timer } from 'timer-node';
 
-export function renderGamePage(difficult) {
+export function renderGamePage(difficult: string) {
     const appEl = document.getElementById('app');
-    let firstCard = null;
-    let secondCard = null;
+    let firstCard: number = null;
+    let secondCard: number = null;
     let clickable = true;
     let cardArray = createCardArray(difficult); //создаем массив из случайных пермешанных пар карт
     //console.log(cardArray); //ТЕСТ
     const timer = new Timer();
-
+    console.log(typeof(timer));
     const openedCardHtml = cardArray
         .map((item, index) => {
             return `<div class='card-item ${item}' data-index=${index}></div>`;
@@ -48,10 +48,10 @@ export function renderGamePage(difficult) {
 
     let intervalId = setInterval(() => {
         minutesHtml.innerHTML = timer.format(
-            `${timer.format('%m') < 10 ? '0%m' : '%m'}`,
+            `${Number(timer.format('%m')) < 10 ? '0%m' : '%m'}`,
         );
         secondsHtml.innerHTML = timer.format(
-            `${timer.format('%s') < 10 ? '.0%s' : '.%s'}`,
+            `${Number(timer.format('%s')) < 10 ? '.0%s' : '.%s'}`,
         );
     }, 1000); //значения таймера будем выводить каждую секунду
 
@@ -73,7 +73,7 @@ export function renderGamePage(difficult) {
                     clickable &&
                     !cardElement.classList.contains('checked-card')
                 ) {
-                    const index = cardElement.dataset.index;
+                    const index: number = Number((cardElement as HTMLElement).dataset.index);
                     cardElement.classList.add(`flip`);
                     setTimeout(() => {
                         cardElement.classList.add(`${cardArray[index]}`); //открываем карту
