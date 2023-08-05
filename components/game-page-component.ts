@@ -72,7 +72,9 @@ export function renderGamePage(difficult: string) {
                     clickable &&
                     !cardElement.classList.contains('checked-card')
                 ) {
-                    const index: number = Number((cardElement as HTMLElement).dataset.index);
+                    const index: number = Number(
+                        (cardElement as HTMLElement).dataset.index,
+                    );
                     cardElement.classList.add(`flip`);
                     setTimeout(() => {
                         cardElement.classList.add(`${cardArray[index]}`); //открываем карту
