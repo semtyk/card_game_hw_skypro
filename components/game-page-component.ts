@@ -8,10 +8,9 @@ export function renderGamePage(difficult: string) {
     let firstCard: number = null;
     let secondCard: number = null;
     let clickable = true;
-    let cardArray = createCardArray(difficult); //создаем массив из случайных пермешанных пар карт
+    const cardArray = createCardArray(difficult); //создаем массив из случайных пермешанных пар карт
     //console.log(cardArray); //ТЕСТ
     const timer = new Timer();
-    console.log(typeof(timer));
     const openedCardHtml = cardArray
         .map((item, index) => {
             return `<div class='card-item ${item}' data-index=${index}></div>`;
@@ -41,12 +40,12 @@ export function renderGamePage(difficult: string) {
 
     appEl.innerHTML = tabledCardHtml; //Рисуем их в разметку
 
-    let minutesHtml = document.querySelector('.current-time-minute');
-    let secondsHtml = document.querySelector('.current-time-sec');
+    const minutesHtml = document.querySelector('.current-time-minute');
+    const secondsHtml = document.querySelector('.current-time-sec');
 
     timer.start(); //запускаем таймер
 
-    let intervalId = setInterval(() => {
+    const intervalId = setInterval(() => {
         minutesHtml.innerHTML = timer.format(
             `${Number(timer.format('%m')) < 10 ? '0%m' : '%m'}`,
         );
@@ -61,7 +60,7 @@ export function renderGamePage(difficult: string) {
         })
         .join(''); //Создаем количество закрытых карт, соответственно количеству сгенерированных карт
 
-    let timerId = setTimeout(() => {
+    const timerId = setTimeout(() => {
         document.querySelector('.game-field').innerHTML = closedCardHtml; //По истечение 5сек скрываем карты
 
         const cardElements = document.querySelectorAll('.card-item');

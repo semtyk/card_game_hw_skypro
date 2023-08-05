@@ -6,9 +6,10 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier --write .",
-        "lint:js": "eslint ./**/*.js",
+        "lint": "eslint ./**/*.ts",
         "lint:css": "stylelint ./**/*.css",
         "build": "webpack --mode production",
+        "build_dev": "webpack --mode development",
         "start": "webpack-dev-server --open --mode development",
         "start_prod": "webpack-dev-server --open --mode production"
     },
@@ -16,9 +17,11 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^6.2.1",
+        "@typescript-eslint/parser": "^6.2.1",
         "css-loader": "^6.8.1",
         "css-minimizer-webpack-plugin": "^5.0.1",
-        "eslint": "^8.45.0",
+        "eslint": "^8.46.0",
         "eslint-config-prettier": "^8.8.0",
         "eslint-plugin-prettier": "^5.0.0",
         "html-webpack-plugin": "^5.5.3",

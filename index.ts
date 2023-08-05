@@ -19,7 +19,8 @@ export const renderMainPage = () => {
     appEl.innerHTML = appHtml;
 
     /* Добавляем интерактивности выбору сложности. При нажатии на кнопку сложности, она сохраняется в переменную */
-    const levelSelectEls: NodeListOf<HTMLElement> = document.querySelectorAll('.difficult-item');
+    const levelSelectEls: NodeListOf<HTMLElement> =
+        document.querySelectorAll('.difficult-item');
     for (const levelSelectEl of levelSelectEls) {
         levelSelectEl.addEventListener('click', () => {
             for (const levelSelectEl of levelSelectEls) {
