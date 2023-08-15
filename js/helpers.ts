@@ -3,18 +3,16 @@ const PAIR_FOR_MEDIUM = 6;
 const PAIR_FOR_HIGH = 9;
 
 /*Функция для перемешивания элементов массива */
-function shuffle(array) {
+function shuffle(array: string[]) {
     for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
+        const j = Math.floor(Math.random() * (i + 1)); // случайный индекс от 0 до i
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
-
 /*Создаем массив из карт, количеством элементов в зависимости от сложности */
 
-export const createCardArray = (difficult) => {
-
+export const createCardArray = (difficult: string) => {
     /*Создали массив из карт всей колоды */
     let arrOfCards = [];
     for (let index = 1; index < 37; index++) {
@@ -44,6 +42,6 @@ export const createCardArray = (difficult) => {
 
     /*И снова перемешиваем */
     shuffle(arrOfCards);
-    
+
     return arrOfCards;
 };

@@ -1,8 +1,6 @@
-import { renderGamePage } from './components/game-page-component.js';
+import { renderGamePage } from './components/game-page-component';
 
-window.globalState = {
-    diffLevel: '',
-};
+let diffLevel: string = '';
 
 export const renderMainPage = () => {
     /*Рендерим стартовую страницу с выбором сложности */
@@ -21,23 +19,24 @@ export const renderMainPage = () => {
     appEl.innerHTML = appHtml;
 
     /* Добавляем интерактивности выбору сложности. При нажатии на кнопку сложности, она сохраняется в переменную */
-    const levelSelectEls = document.querySelectorAll('.difficult-item');
+    const levelSelectEls: NodeListOf<HTMLElement> =
+        document.querySelectorAll('.difficult-item');
     for (const levelSelectEl of levelSelectEls) {
         levelSelectEl.addEventListener('click', () => {
             for (const levelSelectEl of levelSelectEls) {
                 levelSelectEl.classList.remove('difficult-item-select');
             }
             levelSelectEl.classList.add('difficult-item-select');
-            window.globalState.diffLevel = levelSelectEl.dataset.index;
-            console.log(window.globalState.diffLevel);
+            diffLevel = levelSelectEl.dataset.index;
+            console.log(diffLevel);
         });
     }
 
     /* Добавляем обработчик события на кнопку начала игры */
     const buttonStartGame = document.querySelector('.start-game-button');
     buttonStartGame.addEventListener('click', () => {
-        if (window.globalState.diffLevel) {
-            renderGamePage(window.globalState.diffLevel);
+        if (diffLevel) {
+            renderGamePage(diffLevel);
         }
     });
 };
