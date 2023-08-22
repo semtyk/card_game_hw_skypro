@@ -22,6 +22,7 @@ export const createCardArray = (difficult: string) => {
 
     /*Перемешали колоду */
     arrOfCards = shuffle(arrOfCards);
+    //shuffle(arrOfCards);
 
     /*Обрезаем колоду до необходимого количества элементов, деленного на два */
     switch (difficult) {
